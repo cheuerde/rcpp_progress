@@ -184,9 +184,8 @@ public: // ===== methods related to DISPLAY, should not be called directly =====
 	void display_progress_bar() {
 		if ( !is_display_on() )
 			return;
-		REprintf("0%   10   20   30   40   50   60   70   80   90   100%\n");
-		REprintf("|----|----|----|----|----|----|----|----|----|----|\n");
-	}
+		Rcpp::Rcout << "0%   10   20   30   40   50   60   70   80   90   100%" << std::endl;
+		Rcpp::Rcout << "|----|----|----|----|----|----|----|----|----|----|" << std::endl;
 
 protected: // ==== other instance methods =====
 
@@ -196,7 +195,7 @@ protected: // ==== other instance methods =====
 
 	void _display_ticks(int nb) {
 		for (int i = 0; i < nb; ++i)
-			REprintf("*");
+			Rcpp::Rcout << "*" << std::flush;
 	}
 
 	/**
